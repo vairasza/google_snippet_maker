@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h3 {
+  padding: 0;
+  margin: 0;
+  padding-top: 3px;
+  margin-bottom: 4px;
+}
+
+.preview_container {
+  width: 600px;
+  height: 180px;
+  margin: 20px;
+  background-color: #fbfbfb;
+  padding-right: 25px;
+}
+.preview_url {
+  font-size: 14px;
+  padding-top: 1px;
+  line-height: 1.3;
+  color: #202124;
+  font-style: normal;
+  cursor: pointer;
+  text-align: left;
+}
+.preview_title {
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: normal;
+  color: #1a0dab;
+  cursor: pointer;
+  text-align: left;
+}
+.preview_text {
+  line-height: 1.58;
+  color: #4d5156;
+  text-align: left;
+  font-size: 14px;
+  font-weight: normal;
+}
+.content_container {
+  margin: auto;
+}

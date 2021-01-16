@@ -1,0 +1,22 @@
+{
+  "name": "snippet_maker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest",
+    "build": "browserify ./scripts/script.js > bundle.js",
+    "pretty": "npx prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html-to-image": "^1.3.21",
+    "jszip": "^3.5.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1"
+  }
+}

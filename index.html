@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Google Snippet Maker</title>
+  </head>
+  <body>
+    <div class="content_container">
+      <div class="blabla">
+        <h1>Google Snippet Maker</h1>
+        <p>Choose a txt-file that contains snippet content.</p>
+        <p>Per snippet, following information is required divided by a new line: id, url, title, text</p>
+        <p>The txt-file can have multiple snippet informations. If no information for a field exists, leave an empty line.</p>
+        <p>Google Snippet Maker can shorten fields, step throug the snippets, download current snippet as jpeg or all snippet as zipped jpegs.</p>
+      </div>
+      <br>
+      <input type="file" class="input_file" />
+      <input type="checkbox" class="preview_shortener" checked />
+      <span>Shorten text to Google standard?</span>
+      <button type="button" class="button_back" disabled>Back</button>
+      <span class="button_step_text">Step through the snippets</span>
+      <button type="button" class="button_next" disabled>Next</button>
+
+      <div class="preview_container">
+        <cite class="preview_url"></cite>
+        <h3>
+          <span class="preview_title"></span>
+        </h3>
+        <div class="preview_text"></div>
+      </div>
+
+      <button class="button_download" disabled>
+        download currently displayed image
+      </button>
+      <button class="button_download_all" disabled>download all images</button>
+      <span class="counter_text"></span>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
