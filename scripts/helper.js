@@ -30,8 +30,9 @@ async function addElementsToZip(list, preview, zip, options) {
   let arr = [];
   for (let i = 0; i < list.length; i++) {
     displayContent(preview, list[i], options);
-    const blob = await htmlToImage.toBlob(preview);
-    arr.push(zip.file(`${uniqueFileId()}.jpeg`, blob, { binary: true }));
+    const blob = await htmlToImage.toBlob(preview, { backgroundColor: "#ffffff" });
+    let name = list[i].id.replace(/[()\s!]/g, "")
+    arr.push(zip.file(`${name || uniqueFileId()}.jpeg`, blob, { binary: true }));
   }
 
   displayContent(preview, list[0], options);
@@ -50,10 +51,11 @@ async function zipFile(list, node, shortText) {
   });
 }
 
-function downloadFile(node) {
-  htmlToImage.toJpeg(node, { quality: 0.95 }).then((dataUrl) => {
+function downloadFile(node, list, index) {
+  htmlToImage.toJpeg(node, { quality: 0.95, backgroundColor: "#ffffff" }).then((dataUrl) => {
     let link = document.createElement("a");
-    link.download = `${uniqueFileId()}.jpeg`;
+    let name = list[index].id.replace(/[()\s!]/g, "")
+    link.download = `${name || uniqueFileId()}.jpeg`;
     link.href = dataUrl;
     link.click();
   });

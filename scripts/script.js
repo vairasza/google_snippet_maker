@@ -97,7 +97,7 @@ function main() {
   });
 
   button_download.addEventListener("click", () => {
-    helper.downloadFile(preview);
+    helper.downloadFile(preview, content_snippets, current_snippet);
   });
 
   button_download_all.addEventListener("click", () => {

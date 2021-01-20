@@ -12522,7 +12522,9 @@ const JSZip = require("jszip");
 const htmlToImage = require("html-to-image");
 
 function uniqueFileId() {
-  return (Math.random() * 1e12).toString(36);
+    const time = new Date().toISOString().replace(/[-:.]/g, "")
+    const random = ("" + Math.random()).substring(2,8)
+  return time + random
 }
 
 function displayContent(node, obj, options) {
@@ -12548,8 +12550,9 @@ async function addElementsToZip(list, preview, zip, options) {
   let arr = [];
   for (let i = 0; i < list.length; i++) {
     displayContent(preview, list[i], options);
-    const blob = await htmlToImage.toBlob(preview);
-    arr.push(zip.file(`${uniqueFileId()}.jpeg`, blob, { binary: true }));
+    const blob = await htmlToImage.toBlob(preview, { backgroundColor: "#ffffff" });
+    let name = list[i].id.replace(/[()\s!]/g, "")
+    arr.push(zip.file(`${name || uniqueFileId()}.jpeg`, blob, { binary: true }));
   }
 
   displayContent(preview, list[0], options);
@@ -12568,10 +12571,11 @@ async function zipFile(list, node, shortText) {
   });
 }
 
-function downloadFile(node) {
-  htmlToImage.toJpeg(node, { quality: 0.95 }).then((dataUrl) => {
+function downloadFile(node, list, index) {
+  htmlToImage.toJpeg(node, { quality: 0.95, backgroundColor: "#ffffff" }).then((dataUrl) => {
     let link = document.createElement("a");
-    link.download = `${uniqueFileId()}.jpeg`;
+    let name = list[index].id.replace(/[()\s!]/g, "")
+    link.download = `${name || uniqueFileId()}.jpeg`;
     link.href = dataUrl;
     link.click();
   });
@@ -12592,7 +12596,7 @@ function changeSnippet(event, back, next, list, counter, preview, options) {
 }
 
 function displayCounter(node, current, max) {
-  node.innerHTML = `Current: ${current + 1}/${max}.`;
+  node.innerHTML = `Current Snippet: ${current + 1}/${max}`;
 }
 
 module.exports = {
@@ -12704,7 +12708,7 @@ function main() {
   });
 
   button_download.addEventListener("click", () => {
-    helper.downloadFile(preview);
+    helper.downloadFile(preview, content_snippets, current_snippet);
   });
 
   button_download_all.addEventListener("click", () => {
