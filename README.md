@@ -14,7 +14,11 @@ txt-file that contains information in the following format:
 (title)
 (text)
 (url)
-repeat
+(id)
+(title)
+(text)
+(url)
+...
 ```
 
 ### Changes
