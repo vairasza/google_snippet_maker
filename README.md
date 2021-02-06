@@ -1,7 +1,7 @@
 # Google Snippet Maker
 Lets you create Google snippets from a txt-file.
 
-#### Usage
+### Install
 Install <a href="https://github.com/Stuk/jszip">JSZip</a> and <a href="https://github.com/bubkoo/html-to-image">html-to-image</a> with yarn:
 ```sh
 yarn install
@@ -28,9 +28,17 @@ txt-file that contains information in the following format:
 ```sh
 npm run build && npm run pretty
 ```
+4) Run Server with VS-Code Extension "Live Server"
+
+### Usage
+1) click button "Choose File"
+2) choose txt-file with structure see "Allowed Input"
+3) Tick checkbox if you want a shortened URL and title
+4) Step through snippets with Back and Next Buttons
+5a) Click "download currently displayed image" Button if you want the currently displayed image
+5b) Click "download all images" Button if you want all snippets generated as an image
 
 ### TODO
 1) allow more input files/check input type
 2) custom styling, output types, customizable link (see google)
 3) basic styling
-4) fix bug with black border left/top
