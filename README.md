@@ -18,7 +18,7 @@ repeat
 ```
 
 ### Changes
-1) Dont not change bundle.js manually
+1) Do not change bundle.js manually
 2) only change script-files in the folder "scripts"
 3) after making changes run:
 ```sh
